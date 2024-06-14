@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios Gráficos - CEF 10</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="chart.min.js"></script>
+</head>
+<body>
+    <script>
+        const dataValues = [67, 70];
+        const total = dataValues.reduce((acc, value) => acc + value, 0);
+
+        // Calcula as porcentagens
+        const percentages = dataValues.map(value => ((value / total) * 100).toFixed(2));
+
+        // Formata as labels com as porcentagens
+        const labels = ['Feminino', 'Masculino'].map((label, index) => {
+            return `${label} - ${dataValues[index]} (${percentages[index]}%)`;
+        });
+    </script>
+    <div class="container">
+        <h1>Relatórios em Gráfico - 6º ao 9º ano.</h1>
+        <p>Relatório por Idade - 6º ano - Todas as Turmas</p>
+        <div class="chart-container">
+            <canvas id="barChart"></canvas>
+        </div>
+        <p>Relatório por Sexo - 9º ano - Todas as Turmas - Porcentagem </p>
+        <div class="chart-container">
+            <canvas id="pieChart"></canvas>
+        </div>
+        <p>Relatório por Sexo - 6º ao 9º ano - Todas as Turmas</p>
+        <div class="chart-container">
+            <canvas id="genderChart"></canvas>
+        </div>
+        <div class="box">
+            <p>Total de Alunos:</p>
+            <p>614 alunos</p>
+        </div>
+        
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./script.js"></script>
+
+</body>
+</html>
